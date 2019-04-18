@@ -1,0 +1,10 @@
+typedef enum
+{
+	变量1
+	变量2
+}xxxx
+
+void main()
+{
+	可以用switch的case判断“变量1”和2
+}
