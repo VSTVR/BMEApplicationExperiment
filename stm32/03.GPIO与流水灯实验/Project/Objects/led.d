@@ -1,6 +1,8 @@
 .\objects\led.o: ..\App\LED\LED.c
 .\objects\led.o: ..\App\LED\LED.h
 .\objects\led.o: ..\App\DataType\DataType.h
+.\objects\led.o: ..\HW\Delay\delay.h
+.\objects\led.o: ..\HW\Timer\Timer.h
 .\objects\led.o: ..\FW\inc\stm32f10x_gpio.h
 .\objects\led.o: ..\ARM\System\stm32f10x.h
 .\objects\led.o: ..\ARM\System\core_cm3.h

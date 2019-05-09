@@ -18,6 +18,7 @@
 *                                              包含头文件
 *********************************************************************************************************/
 #include "LED.h"
+#include "delay.h"
 #include <stm32f10x_gpio.h> 
 /*********************************************************************************************************
 *                                              宏定义
@@ -136,5 +137,24 @@ void task(u16 cnt)
   {
     GPIO_WriteBit(GPIOC, GPIO_Pin_5, (BitAction)(1));
     scount=0;
+  }
+}
+
+void taskindelay()
+{
+  while(1)
+  {
+    GPIO_WriteBit(GPIOC, GPIO_Pin_4, (BitAction)(0));
+    GPIO_WriteBit(GPIOC, GPIO_Pin_5, (BitAction)(0));
+    delay_ms(1000);
+    GPIO_WriteBit(GPIOC, GPIO_Pin_4, (BitAction)(0));
+    GPIO_WriteBit(GPIOC, GPIO_Pin_5, (BitAction)(1));
+    delay_ms(1000);
+    GPIO_WriteBit(GPIOC, GPIO_Pin_4, (BitAction)(1));
+    GPIO_WriteBit(GPIOC, GPIO_Pin_5, (BitAction)(0));
+    delay_ms(1000);
+    GPIO_WriteBit(GPIOC, GPIO_Pin_4, (BitAction)(1));
+    GPIO_WriteBit(GPIOC, GPIO_Pin_5, (BitAction)(1));
+    delay_ms(1000);
   }
 }

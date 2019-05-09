@@ -337,7 +337,7 @@
               <MiscControls></MiscControls>
               <Define>STM32F10X_HD,USE_STDPERIPH_DRIVER</Define>
               <Undefine></Undefine>
-              <IncludePath>..\App\Main;..\App\DataType;..\HW\RCC;..\HW\Timer;..\HW\UART1;..\FW\inc;..\ARM\NVIC;..\ARM\SysTick;..\ARM\System;..\App\LED</IncludePath>
+              <IncludePath>..\App\Main;..\App\DataType;..\HW\RCC;..\HW\Timer;..\HW\UART1;..\FW\inc;..\ARM\NVIC;..\ARM\SysTick;..\ARM\System;..\App\LED;..\HW\Delay</IncludePath>
             </VariousControls>
           </Cads>
           <Aads>
@@ -418,6 +418,16 @@
               <FileName>UART1.c</FileName>
               <FileType>1</FileType>
               <FilePath>..\HW\UART1\UART1.c</FilePath>
+            </File>
+            <File>
+              <FileName>delay.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\HW\Delay\delay.c</FilePath>
+            </File>
+            <File>
+              <FileName>delay.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>..\HW\Delay\delay.h</FilePath>
             </File>
           </Files>
         </Group>

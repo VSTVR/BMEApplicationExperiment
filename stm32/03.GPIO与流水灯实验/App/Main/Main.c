@@ -26,6 +26,7 @@
 #include "RCC.h"
 #include "SysTick.h"
 #include "LED.h"
+#include "delay.h"
 
 /*********************************************************************************************************
 *                                              宏定义
@@ -134,10 +135,11 @@ int main(void)
   InitSoftware();   //初始化软件相关函数
   InitHardware();   //初始化硬件相关函数
   
-  printf("Init System has been finished.\r\n" );  //打印系统状态
+  //printf("Init System has been finished.\r\n" );  //打印系统状态
 
   while(1)
   {
-    Proc2msTask();  //处理2ms任务
+    taskindelay();
+    //Proc2msTask();  //处理2ms任务
   }
 }

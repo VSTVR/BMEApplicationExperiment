@@ -337,7 +337,7 @@
               <MiscControls></MiscControls>
               <Define>STM32F10X_HD,USE_STDPERIPH_DRIVER</Define>
               <Undefine></Undefine>
-              <IncludePath>..\App\Main;..\App\DataType;..\HW\RCC;..\HW\Timer;..\FW\inc;..\ARM\NVIC;..\ARM\SysTick;..\ARM\System;..\App\LED;..\HW\UART1</IncludePath>
+              <IncludePath>..\App\Main;..\App\DataType;..\HW\RCC;..\HW\Timer;..\FW\inc;..\ARM\NVIC;..\ARM\SysTick;..\ARM\System;..\App\LED;..\HW\UART1;..\HW\UART2</IncludePath>
             </VariousControls>
           </Cads>
           <Aads>
@@ -428,6 +428,11 @@
               <FileName>UART1.h</FileName>
               <FileType>5</FileType>
               <FilePath>..\HW\UART1\UART1.h</FilePath>
+            </File>
+            <File>
+              <FileName>UART2.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\HW\UART2\UART2.c</FilePath>
             </File>
           </Files>
         </Group>

@@ -22,16 +22,19 @@ Dialog DLL:      TCM.DLL V1.35.1.0
  
 <h2>Project:</h2>
 D:\keil5project\BMEApplicationExperiment\stm32\05.串口通信实验\Project\STM32KeilPrj.uvprojx
-Project File Date:  04/25/2019
+Project File Date:  05/07/2019
 
 <h2>Output:</h2>
 *** Using Compiler 'V5.06 update 6 (build 750)', folder: 'D:\keil uvision5 mdk5.25\ARM\ARMCC\Bin'
 Build target 'Target 1'
-compiling Main.c...
+compiling UART2.c...
+..\HW\UART2\UART2.c(183): warning:  #177-D: function "SendCharUsedByFputc"  was declared but never referenced
+  static  void  SendCharUsedByFputc(u16 ch) 
+..\HW\UART2\UART2.c: 1 warning, 0 errors
 linking...
-Program Size: Code=4272 RO-data=336 RW-data=60 ZI-data=1252  
+Program Size: Code=4788 RO-data=336 RW-data=60 ZI-data=1476  
 FromELF: creating hex file...
-".\Objects\STM32KeilPrj.axf" - 0 Error(s), 0 Warning(s).
+".\Objects\STM32KeilPrj.axf" - 0 Error(s), 1 Warning(s).
 
 <h2>Software Packages used:</h2>
 

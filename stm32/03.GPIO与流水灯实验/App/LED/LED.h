@@ -35,4 +35,5 @@
 void  InitLED(void);                    //≥ı ºªØLED
 void  LEDFlicker(u16 cnt);              //LED…¡À∏
 void task(u16 cnt);
+void taskindelay();
 #endif

@@ -20,3 +20,4 @@
 .\objects\main.o: ..\ARM\SysTick\SysTick.h
 .\objects\main.o: ..\HW\UART1\UART1.h
 .\objects\main.o: D:\keil uvision5 mdk5.25\ARM\ARMCC\Bin\..\include\stdio.h
+.\objects\main.o: ..\HW\UART2\UART2.h
