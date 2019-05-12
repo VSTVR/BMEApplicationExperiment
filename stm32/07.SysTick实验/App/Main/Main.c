@@ -25,7 +25,7 @@
 #include "NVIC.h"
 #include "RCC.h"
 #include "LED.h"
-
+#include "SysTick.h"
 /*********************************************************************************************************
 *                                              宏定义
 *********************************************************************************************************/
@@ -81,6 +81,7 @@ static  void  InitHardware(void)
   InitUART1(115200);  //初始化UART模块
   InitTimer();        //初始化Timer模块
   InitLED();          //初始化LED模块
+  InitSysTick();
 }
 
 /*********************************************************************************************************
@@ -135,11 +136,14 @@ int main(void)
   InitSoftware();   //初始化软件相关函数
   InitHardware();   //初始化硬件相关函数
   
-  printf("Init System has been finished.\r\n" );  //打印系统状态
+  //printf("Init System has been finished.\r\n" );  //打印系统状态
 
   while(1)
   {
-    Proc2msTask();  //处理2ms任务
-    Proc1SecTask(); //处理1sec任务   
+    GPIO_WriteBit(GPIOC, GPIO_Pin_4, (BitAction)(1 - GPIO_ReadOutputDataBit(GPIOC, GPIO_Pin_4)));
+    GPIO_WriteBit(GPIOC, GPIO_Pin_5, (BitAction)(1 - GPIO_ReadOutputDataBit(GPIOC, GPIO_Pin_5)));
+    DelayNms(500);
+    //Proc2msTask();  //处理2ms任务
+    //Proc1SecTask(); //处理1sec任务   
   }
 }

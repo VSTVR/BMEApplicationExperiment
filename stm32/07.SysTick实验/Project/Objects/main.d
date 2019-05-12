@@ -19,3 +19,4 @@
 .\objects\main.o: ..\ARM\NVIC\NVIC.h
 .\objects\main.o: ..\HW\RCC\RCC.h
 .\objects\main.o: ..\App\LED\LED.h
+.\objects\main.o: ..\ARM\SysTick\SysTick.h
