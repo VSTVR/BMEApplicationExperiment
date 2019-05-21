@@ -22,3 +22,5 @@
 .\objects\main.o: ..\ARM\SysTick\SysTick.h
 .\objects\main.o: ..\App\KeyOne\KeyOne.h
 .\objects\main.o: ..\App\KeyOne\ProcKeyOne.h
+.\objects\main.o: ..\HW\Flash\Flash.h
+.\objects\main.o: ..\App\OLED\OLED.h

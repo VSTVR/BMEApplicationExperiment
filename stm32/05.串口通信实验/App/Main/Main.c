@@ -26,7 +26,7 @@
 #include "LED.h"
 #include "SysTick.h"
 #include "UART1.h"
-#include "UART2.h"
+//#include "UART2.h"
 /*********************************************************************************************************
 *                                              宏定义
 *********************************************************************************************************/
@@ -83,7 +83,7 @@ static  void  InitHardware(void)
   InitLED();          //初始化LED模块
   InitSysTick();      //初始化SysTick模块
   InitUART1(115200);
-  InitUART2(115200);
+ // InitUART2(9600);
 }
 
 /*********************************************************************************************************
@@ -95,6 +95,7 @@ static  void  InitHardware(void)
 * 创建日期: 2018年01月01日
 * 注    意: 
 *********************************************************************************************************/
+
 static  void  Proc2msTask(void)
 {  
   u8 recData;
@@ -125,7 +126,7 @@ static  void  Proc1SecTask(void)
 {
   if(Get1SecFlag())    //检查1s标志状态
   {    
-    printf("This is the first STM32F1 Project, by Wanqiwei\r\n"); 
+    //printf("This is the first STM32F1 Project, by Wanqiwei\r\n"); 
     Clr1SecFlag();     //清除1s标志
   }    
 }
@@ -147,6 +148,6 @@ int main(void)
   while(1)
   {
     Proc2msTask();  //处理2ms任务
-    Proc1SecTask(); //处理1sec任务   
+    //Proc1SecTask(); //处理1sec任务   
   }
 }

@@ -1,5 +1,5 @@
 Dependencies for Project 'STM32KeilPrj', Target 'Target 1': (DO NOT MODIFY !)
-F (..\App\Main\Main.c)(0x5CD17D77)(-c --cpu Cortex-M3 -D__MICROLIB -g -O0 --apcs=interwork --split_sections -I ..\App\Main -I ..\App\DataType -I ..\HW\RCC -I ..\HW\Timer -I ..\FW\inc -I ..\ARM\NVIC -I ..\ARM\SysTick -I ..\ARM\System -I ..\App\LED -I ..\HW\UART1 -I ..\HW\UART2-I.\RTE\_Target_1-I"D:\keil uvision5 mdk5.25\ARM\PACK\Keil\STM32F1xx_DFP\2.0.0\Device\Include"-I"D:\keil uvision5 mdk5.25\ARM\CMSIS\Include"-D__UVISION_VERSION="525" -DSTM32F10X_HD -DSTM32F10X_HD -DUSE_STDPERIPH_DRIVER-o .\objects\main.o --omf_browse .\objects\main.crf --depend .\objects\main.d)
+F (..\App\Main\Main.c)(0x5CDCB601)(-c --cpu Cortex-M3 -D__MICROLIB -g -O0 --apcs=interwork --split_sections -I ..\App\Main -I ..\App\DataType -I ..\HW\RCC -I ..\HW\Timer -I ..\FW\inc -I ..\ARM\NVIC -I ..\ARM\SysTick -I ..\ARM\System -I ..\App\LED -I ..\HW\UART1 -I ..\HW\UART2-I.\RTE\_Target_1-I"D:\keil uvision5 mdk5.25\ARM\PACK\Keil\STM32F1xx_DFP\2.0.0\Device\Include"-I"D:\keil uvision5 mdk5.25\ARM\CMSIS\Include"-D__UVISION_VERSION="525" -DSTM32F10X_HD -DSTM32F10X_HD -DUSE_STDPERIPH_DRIVER-o .\objects\main.o --omf_browse .\objects\main.crf --depend .\objects\main.d)
 I (..\ARM\System\stm32f10x_conf.h)(0x5A6556B6)
 I (..\FW\inc\stm32f10x_dbgmcu.h)(0x5A6556B6)
 I (..\ARM\System\stm32f10x.h)(0x5A6556B6)
@@ -20,7 +20,6 @@ I (..\App\LED\LED.h)(0x5B432813)
 I (..\ARM\SysTick\SysTick.h)(0x5B4328D7)
 I (..\HW\UART1\UART1.h)(0x5CC415C2)
 I (D:\keil uvision5 mdk5.25\ARM\ARMCC\include\stdio.h)(0x599ECD2C)
-I (..\HW\UART2\UART2.h)(0x5CD17E51)
 F (..\App\LED\LED.c)(0x5B432D53)(-c --cpu Cortex-M3 -D__MICROLIB -g -O0 --apcs=interwork --split_sections -I ..\App\Main -I ..\App\DataType -I ..\HW\RCC -I ..\HW\Timer -I ..\FW\inc -I ..\ARM\NVIC -I ..\ARM\SysTick -I ..\ARM\System -I ..\App\LED -I ..\HW\UART1 -I ..\HW\UART2-I.\RTE\_Target_1-I"D:\keil uvision5 mdk5.25\ARM\PACK\Keil\STM32F1xx_DFP\2.0.0\Device\Include"-I"D:\keil uvision5 mdk5.25\ARM\CMSIS\Include"-D__UVISION_VERSION="525" -DSTM32F10X_HD -DSTM32F10X_HD -DUSE_STDPERIPH_DRIVER-o .\objects\led.o --omf_browse .\objects\led.crf --depend .\objects\led.d)
 I (..\ARM\System\stm32f10x_conf.h)(0x5A6556B6)
 I (..\FW\inc\stm32f10x_dbgmcu.h)(0x5A6556B6)
@@ -85,7 +84,7 @@ I (..\App\DataType\DataType.h)(0x5B4327C9)
 I (..\HW\UART1\Queue.h)(0x5B0F5174)
 F (..\HW\UART1\Queue.h)(0x5B0F5174)()
 F (..\HW\UART1\UART1.h)(0x5CC415C2)()
-F (..\HW\UART2\UART2.c)(0x5CD17EE1)(-c --cpu Cortex-M3 -D__MICROLIB -g -O0 --apcs=interwork --split_sections -I ..\App\Main -I ..\App\DataType -I ..\HW\RCC -I ..\HW\Timer -I ..\FW\inc -I ..\ARM\NVIC -I ..\ARM\SysTick -I ..\ARM\System -I ..\App\LED -I ..\HW\UART1 -I ..\HW\UART2-I.\RTE\_Target_1-I"D:\keil uvision5 mdk5.25\ARM\PACK\Keil\STM32F1xx_DFP\2.0.0\Device\Include"-I"D:\keil uvision5 mdk5.25\ARM\CMSIS\Include"-D__UVISION_VERSION="525" -DSTM32F10X_HD -DSTM32F10X_HD -DUSE_STDPERIPH_DRIVER-o .\objects\uart2.o --omf_browse .\objects\uart2.crf --depend .\objects\uart2.d)
+F (..\HW\UART2\UART2.c)(0x5CD17F0A)(-c --cpu Cortex-M3 -D__MICROLIB -g -O0 --apcs=interwork --split_sections -I ..\App\Main -I ..\App\DataType -I ..\HW\RCC -I ..\HW\Timer -I ..\FW\inc -I ..\ARM\NVIC -I ..\ARM\SysTick -I ..\ARM\System -I ..\App\LED -I ..\HW\UART1 -I ..\HW\UART2-I.\RTE\_Target_1-I"D:\keil uvision5 mdk5.25\ARM\PACK\Keil\STM32F1xx_DFP\2.0.0\Device\Include"-I"D:\keil uvision5 mdk5.25\ARM\CMSIS\Include"-D__UVISION_VERSION="525" -DSTM32F10X_HD -DSTM32F10X_HD -DUSE_STDPERIPH_DRIVER-o .\objects\uart2.o --omf_browse .\objects\uart2.crf --depend .\objects\uart2.d)
 I (..\FW\inc\stm32f10x_usart.h)(0x5A6556B6)
 I (..\ARM\System\stm32f10x.h)(0x5A6556B6)
 I (..\ARM\System\core_cm3.h)(0x5A6556B6)
