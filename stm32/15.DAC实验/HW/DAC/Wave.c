@@ -349,7 +349,8 @@ static u16 s_arrTriWave100Point[100] = {
 /*********************************************************************************************************
 *                                              内部函数声明
 *********************************************************************************************************/
-
+static u16 findmax(u16* arr);
+static void changewavearr(u16* arr,float degree);
 /*********************************************************************************************************
 *                                              内部函数实现
 *********************************************************************************************************/
@@ -411,4 +412,85 @@ u16* GetRectWave100PointAddr(void)
 u16* GetTriWave100PointAddr(void)
 {
   return(s_arrTriWave100Point);
+}
+
+
+//task
+static u16 findmax(u16* arr)
+{
+  u16 i=0;
+  u16 maxnum=0;
+  
+  for(i=0;i<100;i++)
+  {
+    if(arr[i]>=maxnum)
+    {
+      maxnum=arr[i];
+    }
+  }
+  return(maxnum);
+}
+
+static void changewavearr(u16* arr,float degree)
+{
+  u8 i;
+  for(i=0;i<100;i++)
+  {
+    arr[i]*=degree;
+  }
+}
+
+//幅值增加
+void Amplitude_add(u8 mode)
+{
+  if(mode!=0)
+  {
+    switch(mode)
+    {
+      case 1://正弦
+        if(findmax(bo)<4030)
+        {
+          
+        }
+        break;
+      case 2://三角
+        if(findmax(bo)<4030)
+        {
+          ;
+        }
+        break;
+      case 3://方波
+        if(findmax(bo)<4030)
+        {
+          ;
+        }
+        break;
+      default:
+        break;
+    }
+  }
+  
+  
+}
+
+//幅值减小
+void  Amplitude_dec(u8 mode)
+{
+  if(mode!=0)
+  {
+    switch(mode)
+    {
+      case 1:
+        ;
+        break;
+      case 2:
+        ;
+        break;
+      case 3:
+        ;
+        break;
+      default:
+        break;
+    }
+  }
 }

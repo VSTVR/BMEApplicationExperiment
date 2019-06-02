@@ -84,7 +84,7 @@ void  InitSendDataToHost(void)
 *********************************************************************************************************/
 void SendAckPack(u8 moduleId, u8 secondId, u8 ackMsg)
 {
-  StructPackType pt;           //包结构体
+  StructPackType pt;           //包结构体（￥在packunpack里）
 
   pt.packModuleId = MODULE_SYS;   //系统信息
   pt.packSecondId = DAT_CMD_ACK;  //命令应答

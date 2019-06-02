@@ -30,6 +30,12 @@
 #include "PackUnpack.h"
 #include "SendDataToHost.h"
 #include "ADC.h"
+#include "DAC.h" 
+#include "Wave.h"
+#include "Keyone.h"
+#include "ProcKeyOne.h"
+#include "OLED.h"
+
 
 /*********************************************************************************************************
 *                                              宏定义
@@ -90,6 +96,10 @@ static  void  InitHardware(void)
   InitLED();          //初始化LED模块
   InitSysTick();      //初始化SysTick模块
   InitADC();          //初始化ADC模块
+  InitDAC();
+  InitKeyOne();       //初始化 KeyOne 模块 
+  InitProcKeyOne();   //初始化 ProcKeyOne 模块 
+  InitOLED();
 }
 
 /*********************************************************************************************************
@@ -110,12 +120,13 @@ static  void  Proc2msTask(void)
   static u8 s_iCnt4 = 0;   //计数器
   static u8 s_iMark = 0;   //指针位置标志
   static u8 s_arrWaveData[5] = {0}; //初始化数组
+  static  i16 s_iCnt5 = 0;          //按键计数5
   
   if(Get2msFlag())  //检查2ms标志状态
   {     
     if(ReadUART1(&uart1RecData, 1))   //读串口接收数据
     {       
-      ProcHostCmd(uart1RecData);      //处理命令      
+      ProcHostCmd(uart1RecData);      //处理命令（￥ProcHostCmd里）      
     }
     
     s_iCnt4++;                        //计数增加
@@ -128,15 +139,26 @@ static  void  Proc2msTask(void)
         s_arrWaveData[s_iMark] = waveData;    //存放到数组
         s_iMark++;          //标志后移一位   
         
-        if(s_iMark >= 5)    //数组指针越界
+        if(s_iMark >= 5)    //数组指针越界（￥放满之后发送）
         {
           s_iMark = 0;      //重置
-          SendWaveToHost(s_arrWaveData);  //执行发送波形的命令
+          SendWaveToHost(s_arrWaveData);  //执行发送波形的命令（￥SendDataToHost）
         }
       }
       s_iCnt4 = 0;  //准备下次的循环
     }
-       
+    
+    if(s_iCnt5 >= 4) //每10ms进行一次按键扫描
+     {  
+       ScanKeyOne(KEY_NAME_KEY1, ProcKeyUpKey1, ProcKeyDownKey1); 
+       ScanKeyOne(KEY_NAME_KEY2, ProcKeyUpKey2, ProcKeyDownKey2); 
+       ScanKeyOne(KEY_NAME_KEY3, ProcKeyUpKey3, ProcKeyDownKey3); 
+       s_iCnt5 = 0; 
+     }
+     else{
+       s_iCnt5++;
+     }
+    
     LEDFlicker(250);     
     Clr2msFlag();   //清除2ms标志
   }    

@@ -37,4 +37,7 @@ u16*  GetSineWave100PointAddr(void);    //获取100点正弦波数组的地址
 u16*  GetRectWave100PointAddr(void);    //获取100点方波数组的地址
 u16*  GetTriWave100PointAddr(void);     //获取100点三角波数组的地址
 
+void  Amplitude_add(u8 mode);
+void  Amplitude_dec(u8 mode);
+
 #endif

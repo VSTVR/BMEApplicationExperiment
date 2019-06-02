@@ -28,3 +28,8 @@
 .\objects\main.o: ..\APP\PackUnpack\PackUnpack.h
 .\objects\main.o: ..\APP\SendDataToHost\SendDataToHost.h
 .\objects\main.o: ..\HW\ADC\ADC.h
+.\objects\main.o: ..\HW\DAC\DAC.h
+.\objects\main.o: ..\HW\DAC\Wave.h
+.\objects\main.o: ..\App\KeyOne\Keyone.h
+.\objects\main.o: ..\App\KeyOne\ProcKeyOne.h
+.\objects\main.o: ..\App\OLED\OLED.h
