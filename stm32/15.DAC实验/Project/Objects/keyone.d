@@ -9,8 +9,10 @@
 .\objects\keyone.o: ..\FW\inc\stm32f10x_dac.h
 .\objects\keyone.o: ..\FW\inc\stm32f10x_dbgmcu.h
 .\objects\keyone.o: ..\FW\inc\stm32f10x_dma.h
+.\objects\keyone.o: ..\FW\inc\stm32f10x_exti.h
 .\objects\keyone.o: ..\FW\inc\stm32f10x_flash.h
 .\objects\keyone.o: ..\FW\inc\stm32f10x_gpio.h
+.\objects\keyone.o: ..\FW\inc\stm32f10x_iwdg.h
 .\objects\keyone.o: ..\FW\inc\stm32f10x_rcc.h
 .\objects\keyone.o: ..\FW\inc\stm32f10x_tim.h
 .\objects\keyone.o: ..\FW\inc\stm32f10x_usart.h

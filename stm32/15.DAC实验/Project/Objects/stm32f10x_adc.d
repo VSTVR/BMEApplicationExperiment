@@ -10,8 +10,10 @@
 .\objects\stm32f10x_adc.o: ..\ARM\System\stm32f10x.h
 .\objects\stm32f10x_adc.o: ..\FW\inc\stm32f10x_dbgmcu.h
 .\objects\stm32f10x_adc.o: ..\FW\inc\stm32f10x_dma.h
+.\objects\stm32f10x_adc.o: ..\FW\inc\stm32f10x_exti.h
 .\objects\stm32f10x_adc.o: ..\FW\inc\stm32f10x_flash.h
 .\objects\stm32f10x_adc.o: ..\FW\inc\stm32f10x_gpio.h
+.\objects\stm32f10x_adc.o: ..\FW\inc\stm32f10x_iwdg.h
 .\objects\stm32f10x_adc.o: ..\FW\inc\stm32f10x_rcc.h
 .\objects\stm32f10x_adc.o: ..\FW\inc\stm32f10x_tim.h
 .\objects\stm32f10x_adc.o: ..\FW\inc\stm32f10x_usart.h

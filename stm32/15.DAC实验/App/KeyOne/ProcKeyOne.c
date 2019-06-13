@@ -85,17 +85,17 @@ void  ProcKeyDownKey1(void)
         InitDAC_task(wavemode);
         InitDAC();
         break;
-      
+
       case 2://Èý½Ç²¨
         InitDAC_task(wavemode);
         InitDAC();
         break;
-      
+
       case 3://·½²¨
         InitDAC_task(wavemode);
         InitDAC();
         break;
-      
+
       default:
         break;
     }
@@ -105,6 +105,7 @@ void  ProcKeyDownKey1(void)
     wavemode=0;
   }
 } 
+
 
 /*********************************************************************************************************
 * º¯ÊýÃû³Æ: ProcKeyUpKey1 
@@ -133,8 +134,11 @@ void  ProcKeyUpKey1(void)
 void  ProcKeyDownKey2(void) 
 {   
   //printf("KEY2 PUSH DOWN\r\n");  //´òÓ¡°´¼ü×´Ì¬
-  
-     
+  //µÝÔö
+  Amplitude_add(wavemode);
+  InitDAC_task(wavemode);
+  InitDAC();
+    
 } 
 
 /*********************************************************************************************************
@@ -162,9 +166,11 @@ void  ProcKeyUpKey2(void)
 *********************************************************************************************************/
 void  ProcKeyDownKey3(void) 
 {   
-  printf("KEY3 PUSH DOWN\r\n");  //´òÓ¡°´¼ü×´Ì¬ 
-  
-  
+  //printf("KEY3 PUSH DOWN\r\n");  //´òÓ¡°´¼ü×´Ì¬ 
+  //µÝ¼õ
+  Amplitude_dec(wavemode);
+  InitDAC_task(wavemode);
+  InitDAC();
   
 } 
 

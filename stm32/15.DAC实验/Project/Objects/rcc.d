@@ -11,8 +11,10 @@
 .\objects\rcc.o: ..\FW\inc\stm32f10x_dac.h
 .\objects\rcc.o: ..\FW\inc\stm32f10x_dbgmcu.h
 .\objects\rcc.o: ..\FW\inc\stm32f10x_dma.h
+.\objects\rcc.o: ..\FW\inc\stm32f10x_exti.h
 .\objects\rcc.o: ..\FW\inc\stm32f10x_flash.h
 .\objects\rcc.o: ..\FW\inc\stm32f10x_gpio.h
+.\objects\rcc.o: ..\FW\inc\stm32f10x_iwdg.h
 .\objects\rcc.o: ..\FW\inc\stm32f10x_rcc.h
 .\objects\rcc.o: ..\FW\inc\stm32f10x_tim.h
 .\objects\rcc.o: ..\FW\inc\stm32f10x_usart.h

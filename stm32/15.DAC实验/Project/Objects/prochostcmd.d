@@ -5,3 +5,5 @@
 .\objects\prochostcmd.o: ..\HW\UART1\UART1.h
 .\objects\prochostcmd.o: D:\keil uvision5 mdk5.25\ARM\ARMCC\Bin\..\include\stdio.h
 .\objects\prochostcmd.o: ..\APP\SendDataToHost\SendDataToHost.h
+.\objects\prochostcmd.o: ..\HW\DAC\DAC.h
+.\objects\prochostcmd.o: ..\HW\DAC\Wave.h

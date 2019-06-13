@@ -1,42 +1,39 @@
 /*********************************************************************************************************
-* 模块名称: Main.c
-* 摘    要: 主文件，包含软硬件初始化以及main函数
-* 当前版本: 1.0.0
-* 作    者: SZLY(COPYRIGHT 2018 SZLY. All rights reserved.)
-* 完成日期: 2018年01月01日
-* 内    容:
-* 注    意: 注意勾选Options for Target 'Target1'->Code Generation->Use MicroLIB                                                                  
+* 模块名称：Main.c
+* 摘    要：主文件，包含软硬件初始化函数和main函数
+* 当前版本：1.0.0
+* 作    者：SZLY(COPYRIGHT 2018 - 2020 SZLY. All rights reserved.)
+* 完成日期：2020年01月01日
+* 内    容：
+* 注    意：注意勾选Options for Target 'Target1'->Code Generation->Use MicroLIB，否则printf无法使用                                                                  
 **********************************************************************************************************
-* 取代版本: 
-* 作    者:
-* 完成日期: 
-* 修改内容:
-* 修改文件: 
+* 取代版本：
+* 作    者：
+* 完成日期：
+* 修改内容：
+* 修改文件：
 *********************************************************************************************************/
 
 /*********************************************************************************************************
 *                                              包含头文件
 *********************************************************************************************************/
-#include <stm32f10x_conf.h>
 #include "Main.h"
+#include "stm32f10x_conf.h"
 #include "DataType.h"
+#include "NVIC.h"
+#include "SysTick.h"
+#include "RCC.h"
 #include "Timer.h"
 #include "UART1.h"
-#include "NVIC.h"
-#include "RCC.h"
 #include "LED.h"
-#include "SysTick.h"
-#include "ProcHostCmd.h"
 #include "PackUnpack.h"
 #include "SendDataToHost.h"
 #include "ADC.h"
 #include "DAC.h" 
-#include "Wave.h"
-#include "Keyone.h"
+#include "Wave.h" 
+#include "ProcHostCmd.h" 
+#include "KeyOne.h"
 #include "ProcKeyOne.h"
-#include "OLED.h"
-
-
 /*********************************************************************************************************
 *                                              宏定义
 *********************************************************************************************************/
@@ -54,37 +51,36 @@
 *********************************************************************************************************/
 static  void  InitSoftware(void);   //初始化软件相关的模块
 static  void  InitHardware(void);   //初始化硬件相关的模块
-static  void  Proc2msTask(void);    //处理2ms任务
-static  void  Proc1SecTask(void);   //处理1s任务
+static  void  Proc2msTask(void);    //2ms处理任务
+static  void  Proc1SecTask(void);   //1s处理任务
 
 /*********************************************************************************************************
 *                                              内部函数实现
 *********************************************************************************************************/
-
 /*********************************************************************************************************
-* 函数名称: InitSoftware
-* 函数功能: 所有的软件相关的模块初始化函数都放在此函数中
-* 输入参数: void
-* 输出参数: void
-* 返 回 值: void
-* 创建日期: 2018年01月01日
-* 注    意: 
+* 函数名称：InitSoftware
+* 函数功能：所有的软件相关的模块初始化函数都放在此函数中
+* 输入参数：void
+* 输出参数：void
+* 返 回 值：void
+* 创建日期：2018年01月01日
+* 注    意：
 *********************************************************************************************************/
 static  void  InitSoftware(void)
 {
-  InitPackUnpack();       //初始化打包解包模块
-  InitProcHostCmd();      //初始化处理命令模块
-  InitSendDataToHost();   //初始化发送命令到上位机
+  InitPackUnpack();       //初始化PackUnpack模块 
+  InitSendDataToHost();   //初始化SendDataToHost模块   
+  InitProcHostCmd();      //初始化ProcHostCmd模块 
 }
 
 /*********************************************************************************************************
-* 函数名称: InitHardware
-* 函数功能: 所有的硬件相关的模块初始化函数都放在此函数中
-* 输入参数: void
-* 输出参数: void
-* 返 回 值: void
-* 创建日期: 2018年01月01日
-* 注    意: 
+* 函数名称：InitHardware
+* 函数功能：所有的硬件相关的模块初始化函数都放在此函数中
+* 输入参数：void
+* 输出参数：void
+* 返 回 值：void
+* 创建日期：2018年01月01日
+* 注    意：
 *********************************************************************************************************/
 static  void  InitHardware(void)
 {  
@@ -96,53 +92,49 @@ static  void  InitHardware(void)
   InitLED();          //初始化LED模块
   InitSysTick();      //初始化SysTick模块
   InitADC();          //初始化ADC模块
-  InitDAC();
-  InitKeyOne();       //初始化 KeyOne 模块 
+  InitDAC();          //初始化 DAC 模块
+  InitKeyOne();
   InitProcKeyOne();   //初始化 ProcKeyOne 模块 
-  InitOLED();
 }
 
 /*********************************************************************************************************
-* 函数名称: Proc2msTask
-* 函数功能: 处理2ms任务 
-* 输入参数: void
-* 输出参数: void
-* 返 回 值: void
-* 创建日期: 2018年01月01日
-* 注    意: 
+* 函数名称：Proc2msTask
+* 函数功能：2ms处理任务 
+* 输入参数：void
+* 输出参数：void
+* 返 回 值：void
+* 创建日期：2018年01月01日
+* 注    意：
 *********************************************************************************************************/
 static  void  Proc2msTask(void)
 {
-  u16 adcData;             //队列数据
-  u8  waveData;            //波形数据
-  u8  uart1RecData;        //串口数据
+  u16 adcData;      //队列数据
+  u8  waveData;     //波形数据
   
+  static  i16 s_iCnt5 = 0;//按键
   static u8 s_iCnt4 = 0;   //计数器
-  static u8 s_iMark = 0;   //指针位置标志
+  static u8 s_iPointCnt = 0;        //波形数据包的点计数器
   static u8 s_arrWaveData[5] = {0}; //初始化数组
-  static  i16 s_iCnt5 = 0;          //按键计数5
   
-  if(Get2msFlag())  //检查2ms标志状态
+  if(Get2msFlag())  //判断2ms标志状态
   {     
-    if(ReadUART1(&uart1RecData, 1))   //读串口接收数据
-    {       
-      ProcHostCmd(uart1RecData);      //处理命令（￥ProcHostCmd里）      
-    }
+      
+    s_iCnt4++;  //计数增加
+    s_iCnt5++;
     
-    s_iCnt4++;                        //计数增加
     
-    if(s_iCnt4 >= 4)                  //达到8ms
+    if(s_iCnt4 >= 4)  //达到8ms
     {
-      if(ReadADCBuf(&adcData))        //从缓存队列中取出1个数据
+      if(ReadADCBuf(&adcData))  //从缓存队列中取出1个数据
       {
-        waveData = (adcData * 127) / 4095;    //计算获取点的位置
-        s_arrWaveData[s_iMark] = waveData;    //存放到数组
-        s_iMark++;          //标志后移一位   
-        
-        if(s_iMark >= 5)    //数组指针越界（￥放满之后发送）
+        waveData = (adcData * 127) / 4095;  //计算获取点的位置
+        s_arrWaveData[s_iPointCnt] = waveData;  //存放到数组
+        s_iPointCnt++;  //波形数据包的点计数器加1操作
+
+        if(s_iPointCnt >= 5)  //接收到5个点
         {
-          s_iMark = 0;      //重置
-          SendWaveToHost(s_arrWaveData);  //执行发送波形的命令（￥SendDataToHost）
+          s_iPointCnt = 0;  //计数器清零
+          SendWaveToHost(s_arrWaveData);  //发送波形数据包
         }
       }
       s_iCnt4 = 0;  //准备下次的循环
@@ -155,53 +147,50 @@ static  void  Proc2msTask(void)
        ScanKeyOne(KEY_NAME_KEY3, ProcKeyUpKey3, ProcKeyDownKey3); 
        s_iCnt5 = 0; 
      }
-     else{
-       s_iCnt5++;
-     }
-    
-    LEDFlicker(250);     
+       
+    LEDFlicker(250);//调用闪烁函数     
     Clr2msFlag();   //清除2ms标志
-  }    
+  }
 }
 
 /*********************************************************************************************************
-* 函数名称: Proc1SecTask
-* 函数功能: 处理1sec任务 
-* 输入参数: void
-* 输出参数: void
-* 返 回 值: void
-* 创建日期: 2018年01月01日
-* 注    意: 
+* 函数名称：Proc1SecTask
+* 函数功能：1s处理任务 
+* 输入参数：void
+* 输出参数：void
+* 返 回 值：void
+* 创建日期：2018年01月01日
+* 注    意：
 *********************************************************************************************************/
 static  void  Proc1SecTask(void)
 { 
-  if(Get1SecFlag())    //检查1s标志状态
+  if(Get1SecFlag()) //判断1s标志状态
   {
     //printf("This is the first STM32F103 Project, by Zhangsan\r\n");
     
-    Clr1SecFlag();    //清除标志
+    Clr1SecFlag();  //清除1s标志
   }    
 }
 
 /*********************************************************************************************************
-* 函数名称: main
-* 函数功能: 主函数 
-* 输入参数: void
-* 输出参数: void
-* 返 回 值: int
-* 创建日期: 2018年01月01日
-* 注    意: 
+* 函数名称：main
+* 函数功能：主函数 
+* 输入参数：void
+* 输出参数：void
+* 返 回 值：int
+* 创建日期：2018年01月01日
+* 注    意：
 *********************************************************************************************************/
 int main(void)
-{   
+{ 
   InitSoftware();   //初始化软件相关函数
   InitHardware();   //初始化硬件相关函数
-    
-  printf("Init System has been finished.\r\n" );  //打印系统状态
   
+  //printf("Init System has been finished.\r\n" );  //打印系统状态
+
   while(1)
   {
-    Proc2msTask();  //处理2ms任务
-    Proc1SecTask(); //处理1sec任务   
+    Proc2msTask();  //2ms处理任务
+    Proc1SecTask(); //1s处理任务   
   }
 }

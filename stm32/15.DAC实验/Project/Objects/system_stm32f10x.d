@@ -9,8 +9,10 @@
 .\objects\system_stm32f10x.o: ..\FW\inc\stm32f10x_dac.h
 .\objects\system_stm32f10x.o: ..\FW\inc\stm32f10x_dbgmcu.h
 .\objects\system_stm32f10x.o: ..\FW\inc\stm32f10x_dma.h
+.\objects\system_stm32f10x.o: ..\FW\inc\stm32f10x_exti.h
 .\objects\system_stm32f10x.o: ..\FW\inc\stm32f10x_flash.h
 .\objects\system_stm32f10x.o: ..\FW\inc\stm32f10x_gpio.h
+.\objects\system_stm32f10x.o: ..\FW\inc\stm32f10x_iwdg.h
 .\objects\system_stm32f10x.o: ..\FW\inc\stm32f10x_rcc.h
 .\objects\system_stm32f10x.o: ..\FW\inc\stm32f10x_tim.h
 .\objects\system_stm32f10x.o: ..\FW\inc\stm32f10x_usart.h

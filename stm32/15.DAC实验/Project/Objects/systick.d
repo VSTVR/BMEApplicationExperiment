@@ -11,8 +11,10 @@
 .\objects\systick.o: ..\FW\inc\stm32f10x_dac.h
 .\objects\systick.o: ..\FW\inc\stm32f10x_dbgmcu.h
 .\objects\systick.o: ..\FW\inc\stm32f10x_dma.h
+.\objects\systick.o: ..\FW\inc\stm32f10x_exti.h
 .\objects\systick.o: ..\FW\inc\stm32f10x_flash.h
 .\objects\systick.o: ..\FW\inc\stm32f10x_gpio.h
+.\objects\systick.o: ..\FW\inc\stm32f10x_iwdg.h
 .\objects\systick.o: ..\FW\inc\stm32f10x_rcc.h
 .\objects\systick.o: ..\FW\inc\stm32f10x_tim.h
 .\objects\systick.o: ..\FW\inc\stm32f10x_usart.h
